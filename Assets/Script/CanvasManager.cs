@@ -9,7 +9,6 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private Button _startButton;
     [SerializeField] private Button _stopButton;
     [SerializeField] private Spawner _spawner;
-    private bool _lock;
 
 
     public void Start()
@@ -24,7 +23,6 @@ public class CanvasManager : MonoBehaviour
         float value;
         if (float.TryParse(_speedGroup.GetComponentInChildren<InputField>().text, out value))
             _spawner.SetSpeed(value);
-        _lock = true;
     }
 
     public void OnChangeDistanceInputField()
@@ -32,7 +30,6 @@ public class CanvasManager : MonoBehaviour
         float value;
         if (float.TryParse(_distanceGroup.GetComponentInChildren<InputField>().text, out value))
             _spawner.SetDistance(value);
-        _lock = true;
     }
 
     public void OnChangeIntervalInputField()
@@ -40,7 +37,6 @@ public class CanvasManager : MonoBehaviour
         int value;
         if (int.TryParse(_intervalGroup.GetComponentInChildren<InputField>().text, out value))
             _spawner.SetInterval(value);
-        _lock = true;
     }
 
     public void SwitchSpawner()
@@ -48,14 +44,5 @@ public class CanvasManager : MonoBehaviour
         _startButton.gameObject.SetActive(!_startButton.gameObject.activeSelf);
         _stopButton.gameObject.SetActive(!_stopButton.gameObject.activeSelf);
         _spawner.enabled = !_spawner.enabled;
-    }
-
-    public void OpenKeyBoard()
-    {   
-        if(_lock)
-        {
-            TouchScreenKeyboard.Open("", TouchScreenKeyboardType.NumberPad, false, false, false);
-            _lock = false;
-        }      
     }
 }
