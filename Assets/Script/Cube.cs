@@ -7,7 +7,7 @@ public class Cube : MonoBehaviour, ISpawnedObj
     private Vector3 _lastPosition;
     private float _speed = 5;
     private float _distance = 20;
-    private float _currentDistance;   
+    private float _currentDistance;
 
     #region Get/Set
 

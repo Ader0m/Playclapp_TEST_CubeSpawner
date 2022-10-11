@@ -11,7 +11,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private int  _spawnInterval;
     [SerializeField] private float _spawnObjSpeed;
     [SerializeField] private float _spawnObjDistance;
-    private DateTime dateTime;
+    private DateTime _dateTime;
 
     #region Get/Set
 
@@ -37,14 +37,14 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
-        dateTime = DateTime.Now;
+        _dateTime = DateTime.Now;
     }
 
     void Update()
     {
-        if ((DateTime.Now - dateTime).TotalMilliseconds > _spawnInterval)
+        if ((DateTime.Now - _dateTime).TotalMilliseconds > _spawnInterval)
         {
-            dateTime = DateTime.Now;
+            _dateTime = DateTime.Now;
             SpawnObject();
         }
     }

@@ -28,7 +28,7 @@ public class CanvasManager : MonoBehaviour
     {
         float value;
         if (float.TryParse(_distanceGroup.GetComponentInChildren<InputField>().text, out value))
-            _spawner.SetDistance(value);      
+            _spawner.SetDistance(value);
     }
 
     public void OnChangeIntervalInputField()
